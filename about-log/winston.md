@@ -1,6 +1,8 @@
 
 ## 非常好用的nodejs日志库-winston
 
+[返回首页](../readme.md)
+
 今天，我们来介绍一款功能强大的的NodeJS日志库-[Winston](https://github.com/winstonjs/winston)。Winston可以被应用在很多场景下，包括Nodeweb框架（比如：Express）和NodeCLI应用。
 
 ### Winston入门指南 
@@ -370,3 +372,37 @@ logger.error('Error info');
 这篇文章，我们只是简单的介绍了下winston的用法，但是希望你现在就开始用winston来生成日志文件。
 
 [阅读原文](http://thisdavej.com/using-winston-a-versatile-logging-library-for-node-js/)
+
+> 译者简介
+
+```
+
+                   .-' _..`.
+
+                  /  .'_.'.'
+
+                 | .' (.)`.
+
+                 ;'   ,_   `.
+
+ .--.__________.'    ;  `.;-'
+
+|  ./               /
+
+|  |               / 
+
+`..'`-._  _____, ..'
+
+     / | |     | |\ \
+
+    / /| |     | | \ \
+
+   / / | |     | |  \ \
+
+  /_/  |_|     |_|   \_\
+
+ |__\  |__\    |__\  |__\  
+ 
+ ```
+ **马群晶**滴滴海浪前端团队（海浪FE）高级前端工程师，致力于Vue、活动自动化构建平台的研发与布道。
+![](../images/mqj.jpeg)
