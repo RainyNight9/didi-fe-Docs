@@ -47,47 +47,27 @@ $ npm install --save winston
 
 
 
-```shell
-
+```js
 'use strict';
-
 const winston = require('winston');
-
 winston.level = 'debug';
-
 winston.info('Hello world');
-
 winston.debug('Debugging info');
-
 ```
 
-
-
 执行index.js，现在我们就可以打印消息到控制台了。
-
-
-
 ```shell
-
 $ node index.js
-
 ```
 
 
 
 得到如下输出：
 
-
-
 ```shell
-
 info: Hello world
-
 debug: Debugging info
-
 ```
-
-
 
 成功啦！！！这样就可以了，是不是很简单！！！
 
@@ -97,17 +77,9 @@ debug: Debugging info
 
 
 
-```shell
-
+```json
 { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
-
 ```
-
-
-
-
-
-
 
 Winston还提供了其它日志等级，像syslog，你也可以自定义日志等级。
 
@@ -115,47 +87,27 @@ Winston还提供了其它日志等级，像syslog，你也可以自定义日志�
 
 给枯燥的日志添加点颜色还是蛮有趣的。实现方式如下：
 
-
-
-```shell
-
+```js
 'use strict';
-
 const winston = require('winston');
-
 const logger = new (winston.Logger)({
-
   transports: [
-
     // colorize the output to the console
-
     new (winston.transports.Console)({ colorize: true })
-
   ]
-
 });
-
 logger.level = 'debug';
-
 logger.info('Hello world');
-
 logger.debug('Debugging info');
-
 ```
 
-
-
 设置"colorize"属性，这样可以突出显示相应的日志。运行node，显示如下：
-
-
 
 ![image.png](images/884758151721783296.png "image.png")
 
 ### 给生成的日志添加时间戳 
 
 添加时间戳是非常有用的，可以看到每条记录生成的时间。运行node，显示如下：
-
-
 
 ![image.png](images/884760431271481344.png "image.png")
 
@@ -164,93 +116,52 @@ logger.debug('Debugging info');
 设置第二个transport记录日志到文件。
 
 
-
-```shell
-
+```js
 'use strict';
-
 const winston = require('winston');
-
 const fs = require('fs');
-
 const env = process.env.NODE_ENV || 'development';
-
 const logDir = 'log';
-
 // Create the log directory if it does not exist
-
 if (!fs.existsSync(logDir)) {
-
   fs.mkdirSync(logDir);
-
 }
-
 const tsFormat = () => (new Date()).toLocaleTimeString();
-
 const logger = new (winston.Logger)({
-
   transports: [
-
     // colorize the output to the console
-
     new (winston.transports.Console)({
-
       timestamp: tsFormat,
-
       colorize: true,
-
       level: 'info'
-
     }),
-
     new (winston.transports.File)({
-
       filename: `${logDir}/results.log`,
-
       timestamp: tsFormat,
-
       level: env === 'development' ? 'debug' : 'info'
-
     })
-
   ]
-
 });
-
 logger.info('Hello world');
-
 logger.warn('Warning message');
-
 logger.debug('Debugging info');
-
 ```
 
-
-
 当前目录下会产生一个log目录。这里我们添加了env来使得开发环境和正式环境输出不同的日志等级。输入如下命令查看日志：
-
-
 
 ```shell
 
 $ cd log/
-
 $ vim results.log
 
 ```
 
-
-
 日志内容如下：
 
-
-
-```shell
+```json
 
 {"level":"info","message":"Hello world","timestamp":"21:10:32"}
-
 {"level":"warn","message":"Warning message","timestamp":"21:10:32"}
-
 {"level":"debug","message":"Debugging info","timestamp":"21:10:32"}
 
 ```
@@ -273,72 +184,39 @@ $ npm install --save https://github.com/winstonjs/winston-daily-rotate-file/tarb
 
 
 
-```shell
-
+```js
 'use strict';
-
 const winston = require('winston');
-
 const fs = require('fs');
-
 const env = process.env.NODE_ENV || 'development';
-
 const logDir = 'log';
-
 // Create the log directory if it does not exist
-
 if (!fs.existsSync(logDir)) {
-
   fs.mkdirSync(logDir);
-
 }
-
 const tsFormat = () => (new Date()).toLocaleTimeString();
-
 const logger = new (winston.Logger)({
-
   transports: [
-
     // colorize the output to the console
-
     new (winston.transports.Console)({
-
       timestamp: tsFormat,
-
       colorize: true,
-
       level: 'info'
-
     }),
-
     new (require('winston-daily-rotate-file'))({
-
       filename: `${logDir}/-results.log`,
-
       timestamp: tsFormat,
-
       datePattern: 'yyyy-MM-dd',
-
       prepend: true,
-
       level: env === 'development' ? 'verbose' : 'info'
-
     })
-
   ]
-
 });
-
 logger.debug('Debugging info');
-
 logger.verbose('Verbose info');
-
 logger.info('Hello world');
-
 logger.warn('Warning message');
-
 logger.error('Error info');
-
 ```
 
 
@@ -355,14 +233,11 @@ logger.error('Error info');
 
 
 
-```shell
+```json
 
 {"level":"verbose","message":"Verbose info","timestamp":"21:29:32"}
-
 {"level":"info","message":"Hello world","timestamp":"21:29:32"}
-
 {"level":"warn","message":"Warning message","timestamp":"21:29:32"}
-
 {"level":"error","message":"Error info","timestamp":"21:29:32"}
 
 ```
