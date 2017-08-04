@@ -11,3 +11,4 @@
 ## 工程化
 
 * [手把手教你写创建React webapp项目的脚手架](./about-project/generator-react-webapp-by-yoman.md)
+* [项目规](https://github.com/GalaxyTeam/project-guidelines)
