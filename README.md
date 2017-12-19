@@ -17,3 +17,5 @@
 ## React
 
 * [React设计原理](./about-react/react-design-principles.md)
+* [React生命周期管理](./about-react/react-lifecycle.md)
+* [如何利用Jest与Enzyme进行React单元测试](./about-react/react-unittest-with-jest-and-enzyme.md)
