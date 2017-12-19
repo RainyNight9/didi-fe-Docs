@@ -21,3 +21,5 @@
 ## webpack
 
 * [webpack 书籍](./about-webpack/01_foreword.md)
+* [React生命周期管理](./about-react/react-lifecycle.md)
+* [如何利用Jest与Enzyme进行React单元测试](./about-react/react-unittest-with-jest-and-enzyme.md)
