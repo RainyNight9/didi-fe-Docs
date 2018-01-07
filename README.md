@@ -1,4 +1,4 @@
-# hl-fe-Docs
+# 滴滴上海FE团队文章集
 
 ## PWA
 * [Progressive Web App入门指南](./about-pwa/a-beginners-guide-to-progressive-web-apps.md)
@@ -17,3 +17,9 @@
 ## React
 
 * [React设计原理](./about-react/react-design-principles.md)
+
+## webpack
+
+* [webpack 书籍](./about-webpack/01_foreword.md)
+* [React生命周期管理](./about-react/react-lifecycle.md)
+* [如何利用Jest与Enzyme进行React单元测试](./about-react/react-unittest-with-jest-and-enzyme.md)

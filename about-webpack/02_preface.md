@@ -1,0 +1,8 @@
+我如何开始使用webpack是一个有趣的故事。在沉迷于JavaScript之前，我也用Java开发。那时候我试过GWT（Google Web Toolkit）。 GWT是一个Java到JavaScript的编译器，它具有一个很棒的特点：代码分割。我喜欢这个特性，因此忽略了现有的JavaScript工具。我向现有的模块绑定器提出了一个合并请求(pull request)，但没有通过。 Webpack诞生了。
+不知何故，Instagram前端团队发现了一个早期版本的webpack，并开始将其用于instagram.com。管理Instagram web团队的Facebook员工Pete Hunt在OSCON 2014上首次发表了关于webpack的重要意义讲话。该演讲提升了Webpack的普及性。nstagram采用webpack的原因之一就是代码拆分。
+我从这本书的早期就一直在跟踪它，它曾经是一个组合的React和webpack书。自此以后，它已经成长为一本内容丰富的书。	
+Juho是webpack 2文档的webpack文档小组的重要一员，所以他最了解官方文档的补充。他使用这些知识来创建一本书，为您提供对webpack的深刻理解，并教你如何使用该工具充分发挥潜力。
+
+Tobias Koppers
+
+翻译自 https://github.com/survivejs/webpack-book/blob/dev/manuscript/01_foreword.md
