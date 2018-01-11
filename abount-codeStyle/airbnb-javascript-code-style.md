@@ -495,3 +495,260 @@
     const foo = '\'this\' is "quoted"';
     const foo = `my name is '${name}'`;
     ```
+
+## 函数
+1. 使用命名函数表达式而不是函数声明。eslint: [func-style](https://eslint.org/docs/rules/func-style) jscs: [disallowFunctionDeclarations](http://jscs.info/rule/disallowFunctionDeclarations)
+    > 为什么？函数声明会被提前。这意味着很可能在函数定义前引用该函数，但是不会报错。这不利于代码的可读性和可维护性。如果你发现一个函数定义的很大很复杂，以至于妨碍了了解文件中的其他内容，那么是时候把这个函数提取到自己的模块中去了！不要忘记显示指定表达式的名称，尽管它能从变量名中被推断出来（现代浏览器或者编译器（如Babel）支持）。这能让错误的调用栈更清晰。([讨论](https://github.com/airbnb/javascript/issues/794))
+
+    ```javascript
+    // bad
+    function foo() {
+      // ...
+    }
+    
+    // bad
+    const foo = function () {
+      // ...
+    };
+    
+    // good
+    // 函数名和变量引用名不同
+    const short = function longUniqueMoreDescriptiveLexicalFoo() {
+      // ...
+    };
+    ```
+    
+    ```javascript
+    // Is it worse
+    const sum = function(a, b) {
+      return a + b;
+    };
+    
+    // than this?
+    const my_sum = function sum(a, b) {
+      return a + b;
+    };
+    ```
+    > 第一个函数没有`.name`属性，在debugging过程中，它会是一个匿名函数。第二个函数有名字为`sum`，你可以检索到它，调试过程中能够快速定位。
+    
+    > 使用banel 和`babel-preset-env`配置，`const foo = () => {}`会转换成`var foo = function foo () {}`，并且从Node v6开始，`const foo = () => {}`中的foo 也有`.name`。所以它不再是匿名函数。（函数名字推断）
+    
+2. 用圆括号包裹立即执行函数表达式（IIFE）。eslint: [wrap-iife](https://eslint.org/docs/rules/wrap-iife.html) jscs: [requireParenthesesAroundIIFE](http://jscs.info/rule/requireParenthesesAroundIIFE) 
+    > 为什么？ 立即执行函数表达式是单一执行单元-使用圆括号包裹调用，简洁明了的表示了这一点。请注意，在通用的模块中，你几乎用不到IIFE。
+
+    ```javascript
+    // immediately-invoked function expression (IIFE)
+    (function () {
+      console.log('Welcome to the Internet. Please follow me.');
+    }());
+    ```
+3. 永远不要在一个非函数代码块（if、while 等）中声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。eslint: [no-loop-func](https://eslint.org/docs/rules/no-loop-func.html)
+4. 注意：ECMA-262把`block`定义为一组语句。但是函数声明不是语句。
+
+    ```javascript
+    // bad
+    if (currentUser) {
+      function test() {
+        console.log('Nope.');
+      }
+    }
+    
+    // good
+    let test;
+    if (currentUser) {
+      test = () => {
+        console.log('Yup.');
+      };
+    }
+    ```
+5. 永远不要把参数命名为`arguments`。这将取代原来函数作用域内的 `arguments`对象。
+
+    ```javascript
+    // bad
+    function foo(name, options, arguments) {
+      // ...
+    }
+    
+    // good
+    function foo(name, options, args) {
+      // ...
+    }
+    ```
+6. 不要使用`arguments`。可以选择 rest 语法 `...` 替代。
+    >  为什么？使用 `...` 能明确你要传入的参数。另外 rest 参数是一个真正的数组，而 `arguments` 是一个类数组。  
+
+    ```javascript
+    // bad
+    function concatenateAll() {
+      const args = Array.prototype.slice.call(arguments);
+      return args.join('');
+    }
+    
+    // good
+    function concatenateAll(...args) {
+      return args.join('');
+    }
+    ```
+7. 使用函数默认参数指定默认值，而不是用一个可变的函数参数
+
+    ```javascript
+    // really bad
+    function handleThings(opts) {
+      // 不！我们不应该改变函数参数
+      // 更糟糕的是: 如果 opts 是 falsy (为''或者是false), 它仍然会被赋值为对象，但是这可能会引发bug
+      opts = opts || {};
+      // ...
+    }
+    
+    // still bad
+    function handleThings(opts) {
+      if (opts === void 0) {
+        opts = {};
+      }
+      // ...
+    }
+    
+    // good
+    function handleThings(opts = {}) {
+      // ...
+    }
+    ```
+8.使用函数参数默认值的时避免副作用。
+    > 为什么？这样的写法会让人困惑。
+    
+    ```javascript
+    var b = 1;
+    // bad
+    function count(a = b++) {
+      console.log(a);
+    }
+    count();  // 1
+    count();  // 2
+    count(3); // 3
+    count();  // 3
+    ```
+9. 参数默认值放在函数参数列表的最后。
+
+    ```javascript
+    // bad
+    function handleThings(opts = {}, name) {
+      // ...
+    }
+    
+    // good
+    function handleThings(name, opts = {}) {
+      // ...
+    }
+    ```
+10. 不要使用`Function`构造器创建函数。 eslint: [no-new-func](https://eslint.org/docs/rules/no-new-func)
+    > 为什么？通过这种方式创建的函数和使用`eval()`类似，会带来不确定的问题
+
+    ```javascript
+    // bad
+    var add = new Function('a', 'b', 'return a + b');
+    
+    // still bad
+    var subtract = Function('a', 'b', 'return a - b');
+    ```
+11. 函数名两边留白。eslint: [space-before-function-paren](https://eslint.org/docs/rules/space-before-function-paren) [space-before-blocks]
+    > 为什么？保持代码一致性，当你添加或者删除名字时不需要额外增减空格。
+
+    ```javascript
+    // bad
+    const f = function(){};
+    const g = function (){};
+    const h = function() {};
+    
+    // good
+    const x = function () {};
+    const y = function a() {};
+    ```
+12. 不要修改参数。 eslint: [no-param-reassign](https://eslint.org/docs/rules/no-param-reassign.html)
+    > 为什么？操作参数对象会在原始调用方中导致不可预知的变量副作用。
+
+    ```javascript
+    // bad
+    function f1(obj) {
+      obj.key = 1;
+    }
+    
+    // good
+    function f2(obj) {
+      const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+    }
+    ```
+13. 不要给参数赋值。eslint: [no-param-reassign](https://eslint.org/docs/rules/no-param-reassign.html)
+    > 为什么？重新分配参数可能会导致意外的行为，特别是在访问参数对象时。 它也可能导致优化问题，特别是在V8中。
+
+    ```javascript
+    // bad
+    function f1(a) {
+      a = 1;
+      // ...
+    }
+    
+    function f2(a) {
+      if (!a) { a = 1; }
+      // ...
+    }
+    
+    // good
+    function f3(a) {
+      const b = a || 1;
+      // ...
+    }
+    
+    function f4(a = 1) {
+      // ...
+    }
+    ```
+14. 使用展开操作符`...`调用可变参数函数。eslint: [prefer-spread](https://eslint.org/docs/rules/prefer-spread)
+    > 为什么？它更简洁，你不需要提供上下文，并且组合使用`new`和`apply`不容易。
+
+    ```javascript
+    // bad
+    const x = [1, 2, 3, 4, 5];
+    console.log.apply(console, x);
+    
+    // good
+    const x = [1, 2, 3, 4, 5];
+    console.log(...x);
+    
+    // bad
+    new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]));
+    
+    // good
+    new Date(...[2016, 8, 5]);
+    ```
+
+15. 带有多行函数签名或调用的函数应该像本指南中的其他多行列表一样缩进：每行中包含一项，最后一个项目带有逗号。
+
+    ```javascript
+    // bad
+    function foo(bar,
+                 baz,
+                 quux) {
+      // ...
+    }
+    
+    // good
+    function foo(
+      bar,
+      baz,
+      quux,
+    ) {
+      // ...
+    }
+    
+    // bad
+    console.log(foo,
+      bar,
+      baz);
+    
+    // good
+    console.log(
+      foo,
+      bar,
+      baz,
+    );
+    ```
