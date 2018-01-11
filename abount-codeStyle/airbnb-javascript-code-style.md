@@ -129,7 +129,7 @@
 4. 使用属性值简写形式。eslint: [object-shorthand](https://eslint.org/docs/rules/object-shorthand.html) jscs: [requireEnhancedObjectLiterals]
     > 为什么？书写更加简洁，更有描述性。
 
-    ```
+    ```javascript
     const lukeSkywalker = 'Luke Skywalker';
     
     // bad
@@ -145,7 +145,7 @@
 5. 对象声明时分类简写和非简写的属性名。
     > 为什么？更清晰的了解哪些属性是简写的。
 
-    ```
+    ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
     const lukeSkywalker = 'Luke Skywalker';
     
@@ -172,7 +172,7 @@
 6. 只有对那些不合法的属性名标识符添加引号。eslint: [quote-props](https://eslint.org/docs/rules/quote-props.html) jscs: [disallowQuotedKeysInObjects](http://jscs.info/rule/disallowQuotedKeysInObjects)
     > 为什么？对象属性更直观，可读性强。能够代码高亮显示，同时对于大多数的js引擎更容易优化代码。
 
-    ```
+    ```javascript
     // bad
     const bad = {
       'foo': 3,
@@ -461,7 +461,7 @@
 3. 以编程方式构建字符串时，使用模板字符串而不是连接符。eslint: [prefer-template](https://eslint.org/docs/rules/prefer-template.html) [template-curly-spacing](https://eslint.org/docs/rules/template-curly-spacing) jscs: [requireTemplateStrings](http://jscs.info/rule/requireTemplateStrings)
     > 为什么？模板字符串更为简洁，更具可读性。
     
-    ```
+    ```javascript
     // bad
     function sayHi(name) {
       return 'How are you, ' + name + '?';
@@ -487,7 +487,7 @@
 5. 不要过多的转义字符串。eslint: [no-useless-escape](https://eslint.org/docs/rules/no-useless-escape) 
     > 为什么？反斜杠影响代码可读性，只有在必要的时候才使用。
 
-    ```
+    ```javascript
     // bad
     const foo = '\'this\' \i\s \"quoted\"';
     
