@@ -18,6 +18,10 @@
 
 * [React设计原理](./about-react/react-design-principles.md)
 
+## Mobx
+
+* [Mobx入门指南](./about-mobx/mobx-guide.md)
+
 ## webpack
 
 * [webpack 书籍](./about-webpack/01_foreword.md)
