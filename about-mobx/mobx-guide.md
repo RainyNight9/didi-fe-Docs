@@ -11,9 +11,10 @@ Mobx是一种轻量级的状态管理, 可以根据应用的 UI、数据或业�
 | 只有用到该数据的地方才会更新  | 任何action dispatch都会广播，需要自己用需要我们在组件中用 shouldComponentUpdate 控制更新粒度 |
 
 ### 为何用Mobx取代setState
-1.setState是异步操作，使用不当会导致bug
-2.setState会造成一些不必要的重新渲染
-3.setState是不能满足所有的状态存储的，比如如果将一些权限管理状态放在state里面就会造成不必要的渲染
+- setState是异步操作，使用不当会导致bug
+- setState会造成一些不必要的重新渲染
+- setState是不能满足所有的状态存储的，比如如果将一些权限管理状态放在state里面就会造成不必要的渲染
+
 具体可以参考[3 Reasons why I stopped using React.setState](https://blog.cloudboost.io/3-reasons-why-i-stopped-using-react-setstate-ab73fc67a42e)
 
 ### observable
@@ -52,7 +53,8 @@ class OrderLine {
 action是用来修改State的，只执行查找，过滤器等函数不应该被标记为action。
 推荐使用严格模式```mobx.useStrict(true)```，这样对于任何不适用动作的状态修改，mobx都会抛出异常。
 
-### Mobx核心函数autoRun
+### 核心函数autorun
+使用 ```autorun``` 时，所提供的函数总是立即被触发一次，然后每次它的依赖关系改变时会再次被触发
 先看个最简单的例子
 ```javascript
 const obj = observable({
@@ -63,11 +65,12 @@ const obj = observable({
 autorun(() => {
     console.log(obj.a)
 })
+// 立即触发一次，输出 ：1
 
 obj.b = 3 // 什么都没有发生
 obj.a = 2 // observe 函数的回调触发了，控制台输出：2
 ```
-因为只有obj的a属性在autoRun里被用到了，所有只有对它的改动才会触发回调。
+因为只有obj的a属性在autorun里被用到了，所有只有对它的改动才会触发回调。
 
 ### Mobx基本数据流
 ![Mobx数据流](http://cn.mobx.js.org/flow.png)
