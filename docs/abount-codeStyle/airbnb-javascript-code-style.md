@@ -752,3 +752,405 @@
       baz,
     );
     ```
+## 箭头函数
+1. 当你必须要使用匿名函数（如在传递内联回调时），请使用箭头函数。eslint: [prefer-arrow-callback](https://eslint.org/docs/rules/prefer-arrow-callback.html), [arrow-spacing](https://eslint.org/docs/rules/arrow-spacing.html) jscs: [requireArrowFunctions](http://jscs.info/rule/requireArrowFunctions)
+    > 为什么?因为箭头函数创造了新的一个 this 执行环境，通常情况下都能满足你的需求，而且这样的写法更为简洁。（参考 [Arrow functions - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions) ）
+
+    > 为什么不？如果你有一个相当复杂的函数，你或许可以把逻辑部分转移到一个函数声明上。
+    
+    ```javascript
+    // bad
+    [1, 2, 3].map(function (x) {
+      const y = x + 1;
+      return x * y;
+    });
+    
+    // good
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+
+2. 如果一个函数适合用一行写出并且只有一个参数，那就把花括号、圆括号和 return 都省略掉。如果不是，那就不要省略。eslint: [arrow-parens](https://eslint.org/docs/rules/arrow-parens.html), [arrow-body-style](https://eslint.org/docs/rules/arrow-body-style.html) jscs: [disallowParenthesesAroundArrowParam](http://jscs.info/rule/disallowParenthesesAroundArrowParam), [requireShorthandArrowFunctions](http://jscs.info/rule/requireShorthandArrowFunctions) 
+    >  为什么？这是一个很好用的语法糖。在链式调用中可读性很高。
+
+    ```javascript
+    // bad
+    [1, 2, 3].map(number => {
+      const nextNumber = number + 1;
+      `A string containing the ${nextNumber}.`;
+    });
+    
+    // good
+    [1, 2, 3].map(number => `A string containing the ${number}.`);
+    
+    // good
+    [1, 2, 3].map((number) => {
+      const nextNumber = number + 1;
+      return `A string containing the ${nextNumber}.`;
+    });
+    
+    // good
+    [1, 2, 3].map((number, index) => ({
+      [index]: number,
+    }));
+    
+    // No implicit return with side effects
+    function foo(callback) {
+      const val = callback();
+      if (val === true) {
+        // Do something if callback returns true
+      }
+    }
+    
+    let bool = false;
+    
+    // bad
+    foo(() => bool = true);
+    
+    // good
+    foo(() => {
+      bool = true;
+    });
+    ```
+
+3. 如果表达式过长需要多行表示，请将其包含在括号中，增加可读性。
+    > 为什么？它能清除的标识函数的开始和结束位置。
+
+    ```javascript
+    // bad
+    ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+        httpMagicObjectWithAVeryLongName,
+        httpMethod,
+      )
+    );
+    
+    // good
+    ['get', 'post', 'put'].map(httpMethod => (
+      Object.prototype.hasOwnProperty.call(
+        httpMagicObjectWithAVeryLongName,
+        httpMethod,
+      )
+    ));
+    ```
+4. 如果函数只有一个参数并且函数体没有使用花括号，那就省略括号。否则，为了保持清晰一致性，总在参数周围加上括号。总是使用括号也是可以接受的，在这种情况下使用eslint的 [“always” option](https://eslint.org/docs/rules/arrow-parens#always) 或者不要在jscs中引入 [disallowParenthesesAroundArrowParam](http://jscs.info/rule/disallowParenthesesAroundArrowParam)。eslint: [arrow-parens](https://eslint.org/docs/rules/arrow-parens.html) jscs: [disallowParenthesesAroundArrowParam](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
+    > 为什么？ 不那么混乱，可读性强。
+
+    ```javascript
+    // bad
+    [1, 2, 3].map((x) => x * x);
+    
+    // good
+    [1, 2, 3].map(x => x * x);
+    
+    // good
+    [1, 2, 3].map(number => (
+      `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+    ));
+    
+    // bad
+    [1, 2, 3].map(x => {
+      const y = x + 1;
+      return x * y;
+    });
+    
+    // good
+    [1, 2, 3].map((x) => {
+      const y = x + 1;
+      return x * y;
+    });
+    ```
+5. 避免箭头函数语法（`=>`）和比较运算符（`<=`,`=>`）一起使用时带来的困惑。
+
+    ```javascript
+    // bad
+    const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
+    
+    // bad
+    const itemHeight = (item) => item.height > 256 ? item.largeSize : item.smallSize;
+    
+    // good
+    const itemHeight = item => (item.height > 256 ? item.largeSize : item.smallSize);
+    
+    // good
+    const itemHeight = (item) => {
+      const { height, largeSize, smallSize } = item;
+      return height > 256 ? largeSize : smallSize;
+    };
+    ```
+
+## 类 & 构造函数
+1. 总是使用`class`。避免直接操作`prototype`。
+    > 为什么？`class`语法更简洁更易于理解。
+    
+    ```javascript
+    // bad
+    function Queue(contents = []) {
+      this.queue = [...contents];
+    }
+    Queue.prototype.pop = function () {
+      const value = this.queue[0];
+      this.queue.splice(0, 1);
+      return value;
+    };
+    
+    // good
+    class Queue {
+      constructor(contents = []) {
+        this.queue = [...contents];
+      }
+      pop() {
+        const value = this.queue[0];
+        this.queue.splice(0, 1);
+        return value;
+      }
+    }
+    ```
+2. 使用`extends`继承。
+    >  为什么？ 因为 extends 是一个内建的原型继承方法并且不会破坏 instanceof。
+
+    ```javascript
+    // bad
+    const inherits = require('inherits');
+    function PeekableQueue(contents) {
+      Queue.apply(this, contents);
+    }
+    inherits(PeekableQueue, Queue);
+    PeekableQueue.prototype.peek = function () {
+      return this.queue[0];
+    };
+    
+    // good
+    class PeekableQueue extends Queue {
+      peek() {
+        return this.queue[0];
+      }
+    }
+    
+    ```
+3. 方法可以返回 this 来帮助链式调用。
+
+    ```javascript
+    // bad
+    Jedi.prototype.jump = function () {
+      this.jumping = true;
+      return true;
+    };
+    
+    Jedi.prototype.setHeight = function (height) {
+      this.height = height;
+    };
+    
+    const luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20); // => undefined
+    
+    // good
+    class Jedi {
+      jump() {
+        this.jumping = true;
+        return this;
+      }
+    
+      setHeight(height) {
+        this.height = height;
+        return this;
+      }
+    }
+    
+    const luke = new Jedi();
+    
+    luke.jump()
+      .setHeight(20);
+    ```
+4. 可以写一个自定义的 toString() 方法，但要确保它能正常运行并且不会引起副作用。
+
+    ```javascript
+    class Jedi {
+      constructor(options = {}) {
+        this.name = options.name || 'no name';
+      }
+    
+      getName() {
+        return this.name;
+      }
+    
+      toString() {
+        return `Jedi - ${this.getName()}`;
+      }
+    }
+    ``` 
+5. 类有默认构造器。一个空的构造函数或者只是重载父类构造函数是不必要的。eslint: [no-useless-constructor](https://eslint.org/docs/rules/no-useless-constructor)
+
+    ```javascript
+    // bad
+    class Jedi {
+      constructor() {}
+    
+      getName() {
+        return this.name;
+      }
+    }
+    
+    // bad
+    class Rey extends Jedi {
+      constructor(...args) {
+        super(...args);
+      }
+    }
+    
+    // good
+    class Rey extends Jedi {
+      constructor(...args) {
+        super(...args);
+        this.name = 'Rey';
+      }
+    }
+    ```
+6. 避免重复的类成员。eslint: [no-dupe-class-members](https://eslint.org/docs/rules/no-dupe-class-members) 
+    > 为什么？重复的类成员声明中只有最后一个生效-重复的声明肯定是一个错误。
+
+    ```javascript
+    // bad
+    class Foo {
+      bar() { return 1; }
+      bar() { return 2; }
+    }
+    
+    // good
+    class Foo {
+      bar() { return 1; }
+    }
+    
+    // good
+    class Foo {
+      bar() { return 2; }
+    }
+    
+    ```
+
+## 模块
+1. 总是使用模组 (`import/export`) 而不是其他非标准模块系统。你可以编译为你喜欢的模块系统。
+    > 为什么？模块是未来，让我们开始迈向未来吧。
+
+    ```javascript
+    // bad
+    const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+    module.exports = AirbnbStyleGuide.es6;
+    
+    // ok
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    export default AirbnbStyleGuide.es6;
+    
+    // best
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+2. 不要使用通配符  `import`
+    > 为什么？这样确保只有一个默认的export
+
+    ```javascript
+    // bad
+    import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+    
+    // good
+    import AirbnbStyleGuide from './AirbnbStyleGuide';
+    ```
+3. 不要直接从`import`中`export`
+    > 为什么？虽然一行代码简洁明了，但让 `import` 和 `export` 各司其职让事情能保持一致。
+    
+    ```javascript
+    // bad
+    // filename es6.js
+    export { es6 as default } from './AirbnbStyleGuide';
+    
+    // good
+    // filename es6.js
+    import { es6 } from './AirbnbStyleGuide';
+    export default es6;
+    ```
+4. 同一个路径只使用一次`import`。eslint: [no-duplicate-imports](https://eslint.org/docs/rules/no-duplicate-imports) 
+    > 为什么？相同路径有多个`import`会导致代码难以维护。
+
+    ```javascript
+    // bad
+    import foo from 'foo';
+    // … some other imports … //
+    import { named1, named2 } from 'foo';
+    
+    // good
+    import foo, { named1, named2 } from 'foo';
+    
+    // good
+    import foo, {
+      named1,
+      named2,
+    } from 'foo';
+    ```
+5. 不要`export`可变的绑定。 eslint: [import/no-mutable-exports](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+    > 为什么？避免不确定的可变量，特别是`export`可变的绑定。如果某些特殊情况需要使用这种场景，通常应该`export`常量引用。
+
+    ```javascript
+    // bad
+    let foo = 3;
+    export { foo };
+    
+    // good
+    const foo = 3;
+    export { foo };
+    ```
+6. 模块中只有单个`export`,最好使用`default export` 。 eslint: [import/prefer-default-export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+    > 为什么？一个文件最好只做一件事，这样更具备可读性和可维护性。
+
+    ```javascript
+    // bad
+    export function foo() {}
+    
+    // good
+    export default function foo() {}
+    ```
+7. 将所有的`import`语句放在文件的顶部。eslint: [import/first](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+    > 为什么？由于`import`s会被提升，最好保持它们在顶部以防出现不可预期的行为。
+
+    ```javascript
+    // bad
+    import foo from 'foo';
+    foo.init();
+    
+    import bar from 'bar';
+    
+    // good
+    import foo from 'foo';
+    import bar from 'bar';
+    
+    foo.init();
+    ```
+8. 多行`import`应该和多行数组和对象一样有缩进。
+    > 为什么？花括号需要遵循与指南中的每个其他花括号相同的缩进规则，末尾的逗号也一样。
+
+    ```javascript
+    // bad
+    import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
+    
+    // good
+    import {
+      longNameA,
+      longNameB,
+      longNameC,
+      longNameD,
+      longNameE,
+    } from 'path';
+    ```
+9. 禁止在模块导入语句中使用Webpack加载器语法。eslint: [import/no-webpack-loader-syntax](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md) 
+    > 为什么？在`import`中使用webpack 语法会将代码耦合进bundler中。推荐在`webpack.config.js`中配置loader 规则。
+
+    ```javascript
+    // bad
+    import fooSass from 'css!sass!foo.scss';
+    import barCss from 'style!css!bar.css';
+    
+    // good
+    import fooSass from 'foo.scss';
+    import barCss from 'bar.css';
+    ```
