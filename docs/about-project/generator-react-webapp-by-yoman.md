@@ -1,5 +1,5 @@
 # 手把手教你写创建React webapp项目的脚手架
-[返回首页](../README.md)
+[返回首页](../../README.md)
 
 
 [作者github地址](https://github.com/sunshinewlz01/generator-react-webapp)

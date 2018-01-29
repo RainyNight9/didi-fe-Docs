@@ -1,7 +1,7 @@
 
 ## 非常好用的nodejs日志库-winston
 
-[返回首页](../README.md)
+[返回首页](../../README.md)
 
 今天，我们来介绍一款功能强大的的NodeJS日志库-[Winston](https://github.com/winstonjs/winston)。Winston可以被应用在很多场景下，包括Nodeweb框架（比如：Express）和NodeCLI应用。
 

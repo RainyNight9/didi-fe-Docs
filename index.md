@@ -3,6 +3,10 @@ layout: default
 ---
 
 
+## [](#header-2)规范化
+* [Airbnb JavaScript 编码风格指南](./docs/about-codeStyle/airbnb.javascript.code.style.md)
+
+
 ## [](#header-2)PWA
 * [Progressive Web App入门指南](./docs/about-pwa/a-beginners-guide-to-progressive-web-apps.md)
 

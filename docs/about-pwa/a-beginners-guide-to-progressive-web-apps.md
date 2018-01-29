@@ -1,5 +1,5 @@
 ## Progressive Web App入门指南
-[返回首页](../README.md)
+[返回首页](../../README.md)
 > 本文翻译来自https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/。有兴趣的同学可以点击[阅读原文](https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/)
 
 Progressive web app(以下简称PWA)的出现为移动web开发带来了一次大的变革。自从Google在2015年推出PWA以来，由于其相对简单的开发过程以及在应用的用户体验方面带来的明显提升，已经吸引了大量的关注。
