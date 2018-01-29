@@ -1,4 +1,4 @@
-# Airbnb JavaScript 编码风格指南
+# Airbnb JavaScript 编码风格指南(2018年最新版)
 [返回首页](../../README.md)
 
 ## 类型
