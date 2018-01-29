@@ -3,7 +3,10 @@
 [![Build Status](https://travis-ci.org/pages-themes/cayman.svg?branch=master)](https://travis-ci.org/pages-themes/cayman) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman.svg)](https://badge.fury.io/rb/jekyll-theme-cayman)
 
 
-![DIDI FE logo](./images/logos/fe-logo.jpeg)
+![DIDI FE logo](./images/logos/fe-logo.jpeg =166px)
+
+## 规范化
+* [Airbnb JavaScript 编码风格指南](./docs/about-codeStyle/airbnb.javascript.code.style.md)
 
 ## PWA
 * [Progressive Web App入门指南](./docs/about-pwa/a-beginners-guide-to-progressive-web-apps.md)
