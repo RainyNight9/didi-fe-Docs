@@ -6,7 +6,7 @@
 <img src="./images/logos/fe-logo.jpeg" width="166px">
 
 ## 规范化
-* [Airbnb JavaScript 编码风格指南](./docs/about-codeStyle/airbnb.javascript.code.style.md)
+* [Airbnb JavaScript 编码风格指南](./docs/about-codeStyle/airbnb-javascript-code-style.md)
 
 ## PWA
 * [Progressive Web App入门指南](./docs/about-pwa/a-beginners-guide-to-progressive-web-apps.md)
