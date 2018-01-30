@@ -2930,6 +2930,6 @@
     - 无论使用哪种测试框架，都应该写测试用例。
     - 尽量写小的纯函数，并减少修改的部分。
     - 谨慎地使用假数据，这样会使你的测试代码变得脆弱。
-    - [在Airbnb我们主要使用mocha](https://www.npmjs.com/package/mocha)。[tape](https://www.npmjs.com/package/tape)也偶尔用于小型独立模块的测试。
+    - 在Airbnb我们主要使用[mocha](https://www.npmjs.com/package/mocha)。[tape](https://www.npmjs.com/package/tape)也偶尔用于小型独立模块的测试。
     - 100％的测试覆盖率是一个很好的追求目标，即使它并不总是实际可行的。
     - 每当你修复一个bug，写一个回归测试。 未经回归测试修正的bug几乎在未来肯定会再次出问题。
