@@ -167,7 +167,7 @@ React Fiber一个更新过程分为两个阶段：第一个阶段Reconciliation 
 
 ## React 16升级过程中遇到的问题
 
-### react-highlight暂时不支持react16
+#### react-highlight暂时不支持react16
 有workaround解决，详情请见[react-highlight-16-issue](https://github.com/akiran/react-highlight/issues/39#issuecomment-334898100)
 
 #### Library千万不要把React作为dependencies
@@ -181,7 +181,7 @@ React Fiber一个更新过程分为两个阶段：第一个阶段Reconciliation 
 解决办法：更新vendor.dll以及vendor.manifest.json
 
 ## 参考
-[React 16](https://reactjs.org/blog/2017/09/26/react-v16.0.html)
-[React 16 error handler](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
-[React 16 portals](https://reactjs.org/docs/portals.html)
-[React Fiber是什么](https://zhuanlan.zhihu.com/p/26027085)
+- [React 16](https://reactjs.org/blog/2017/09/26/react-v16.0.html)
+- [React 16 error handler](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
+- [React 16 portals](https://reactjs.org/docs/portals.html)
+- [React Fiber是什么](https://zhuanlan.zhihu.com/p/26027085)
