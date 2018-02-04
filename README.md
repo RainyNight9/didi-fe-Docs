@@ -25,7 +25,7 @@
 ## React
 
 * [React设计原理](./docs/about-react/react-design-principles.md)
-* [React 16新特性及升级指南](./docs/about-react/react16-features)
+* [React 16新特性及升级指南](./docs/about-react/react16-features.md)
 * [React生命周期管理](./docs/about-react/react-lifecycle.md)
 * [如何利用Jest与Enzyme进行React单元测试](./docs/about-react/react-unittest-with-jest-and-enzyme.md)
 
