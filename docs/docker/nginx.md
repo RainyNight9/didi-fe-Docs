@@ -265,12 +265,6 @@ http {
 
 在www下创建测试html，index.html:
 
-
-
-4、下面就要把宿主机下的文件挂载到通过nginx创建的容器中区
-
-
-
 ```shell
 
 <!DOCTYPE html>
@@ -287,7 +281,7 @@ http {
 
 
 
-5、启动容器
+4、下面就要把宿主机下的文件挂载到通过nginx创建的容器中区
 
 
 
@@ -327,7 +321,7 @@ $docker run -p 8093:80 --name mynginx  -v $PWD/conf/nginx.conf:/etc/nginx/nginx.
 
 * * *
 
-6、配置Nginx反向代理
+5、配置Nginx反向代理
 
 
 
