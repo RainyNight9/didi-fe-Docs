@@ -73,7 +73,7 @@ $ docker pull nginx
 
 
 
-在当前目录nginx下创建三个目录，conflogwww
+在当前目录nginx下创建三个目录，conf、log、www
 
 
 
@@ -273,24 +273,15 @@ http {
 
 ```shell
 
-
-
-
-
-
-
-
-
-
-
-
-
-Hello docker nginx
-
-
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+</head>
+<body>
+<h2>Hello docker nginx</h1>
+</body>
+</html>
 
 ```
 
@@ -332,7 +323,7 @@ $docker run -p 8093:80 --name mynginx  -v $PWD/conf/nginx.conf:/etc/nginx/nginx.
 
 
 
-顺利的话，在浏览器中输入http://localhost:8093/应该能看到Hellodockernginx
+顺利的话，在浏览器中输入http://localhost:8093/ 应该能看到Hello docker nginx
 
 * * *
 
