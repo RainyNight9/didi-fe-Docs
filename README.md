@@ -10,7 +10,7 @@
 
 ## PWA
 * [Progressive Web App入门指南](./docs/about-pwa/a-beginners-guide-to-progressive-web-apps.md)
-
+* [Progressive Add homescreen](./docs/about-pwa/add-homescreen.md)
 
 ## Log
 
