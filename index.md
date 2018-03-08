@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# 滴滴出行上海前端（FE）团队文章集
+# 滴滴出行前端（FE）团队联盟文章集
 
 [![Build Status](https://travis-ci.org/pages-themes/cayman.svg?branch=master)](https://travis-ci.org/pages-themes/cayman) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-cayman.svg)](https://badge.fury.io/rb/jekyll-theme-cayman)
 
