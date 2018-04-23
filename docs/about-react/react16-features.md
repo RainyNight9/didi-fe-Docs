@@ -202,4 +202,4 @@ React Fiber一个更新过程分为两个阶段：第一个阶段Reconciliation 
 
 > 作者简介
 **周昊** 滴滴上海前端团队高级前端工程师，曰天，曾就职于SAP，深耕React、对mobx、redux等有深入的实践经验，王者荣耀王者段位。
-![](../images/zhouhao.jpeg)
+![](../../images/zhouhao.jpeg)

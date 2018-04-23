@@ -102,4 +102,4 @@ https://github.com/airbnb/enzyme
 
 > 作者简介
 **范可** 滴滴上海前端团队架构师，全栈工程师，微信专家，曾就职于SAP，LIMO创始人，关注于React、Vue、Mini Program等跨端技术的打通。
-![](../images/fanke.jpeg)
+![](../../images/fanke.jpeg)

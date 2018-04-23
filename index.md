@@ -43,9 +43,6 @@ layout: default
 
 * [Mobx入门指南](./docs/about-mobx/mobx-guide.md)
 
-## webpack
-
-* [webpack 书籍](./docs/about-webpack/01_foreword.md)
 
 ## 数据分析
 
