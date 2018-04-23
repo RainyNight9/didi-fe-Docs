@@ -13,15 +13,15 @@
 * [PWA之Add to Homescreen](./docs/about-pwa/add-homescreen.md)
 
 ## Log
-* [非常好用的nodejs日志库-winston](./docs/about-log/winston.md)
+* [非常好用的Node JS日志库：Winston](./docs/about-log/winston.md)
 
 ## Docker
-* [Mac下Docker安装nginx并配置反向代理实现前后端分离](./docs/docker/nginx.md)
+* [Mac下Docker安装Nginx并配置反向代理实现前后端分离](./docs/docker/nginx.md)
 
 ## 工程化
-* [手把手教你写创建React webapp项目的脚手架](./docs/about-project/generator-react-webapp-by-yoman.md)
+* [手把手教你写创建React Webapp项目的脚手架](./docs/about-project/generator-react-webapp-by-yoman.md)
 * [项目规范](https://github.com/GalaxyTeam/project-guidelines)
-* [MockServer漫谈](./docs/about-project/mock-server.md)
+* [Mock Server漫谈](./docs/about-project/mock-server.md)
 
 ## React
 * [React设计原理](./docs/about-react/react-design-principles.md)
@@ -45,6 +45,7 @@
 ![](./images/zhouhao.jpeg)
 ![](./images/zhouyong.jpeg)
 ![](./images/dingquan.jpeg)
+![](./images/changchaofan.jpeg)
 ![](./images/qiaohongmin.jpeg)
 
 ![DIDI FE logo](./images/logos/fe-mean1.jpeg)
