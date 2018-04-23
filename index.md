@@ -41,14 +41,14 @@ layout: default
 ## CSS
 * [Flexbox小笔记](./docs/about-css/flexbox.md)
 
-![](../images/huangyang.jpeg)
-![](../images/yangyongle.jpeg)
-![](../images/maqunjin.jpeg)
-![](../images/fanke.jpeg)
-![](../images/zhouhao.jpeg)
-![](../images/zhouyong.jpeg)
-![](../images/dingquan.jpeg)
-![](../images/qiaohongmin.jpeg)
+![](./images/huangyang.jpeg)
+![](./images/yangyongle.jpeg)
+![](./images/maqunjin.jpeg)
+![](./images/fanke.jpeg)
+![](./images/zhouhao.jpeg)
+![](./images/zhouyong.jpeg)
+![](./images/dingquan.jpeg)
+![](./images/qiaohongmin.jpeg)
 
 ![DIDI FE logo](./images/logos/fe-mean1.jpeg)
 ![DIDI FE logo](./images/logos/fe-mean2.jpeg)
