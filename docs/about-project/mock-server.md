@@ -73,5 +73,7 @@ swagger是一个著名的API文档编辑工具，也可以充当mock工具的功
 
 
 > 作者简介
-![](../../images/zhouyong.jpeg)
+
 **周勇** 滴滴上海前端团队架构师，全栈工程师，Avatar Mock Server第一作者，酷爱前端技术的一切。
+
+![](../../images/zhouyong.jpeg)

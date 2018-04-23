@@ -364,8 +364,10 @@ yo react-xxx
 Yeoman的强大不止这些，本文实际上只是使用了其中的一个小小点。更多请访问[Yeoman官方网站](http://yeoman.io/)
 
 > 译者简介
+
 **魏磊哲** 魏磊哲，负责滴滴海浪事业部前端架构工作，曾先后供职于百度、陆金所，喜欢研究技术和工具，不限于前端，业余时间喜欢看看书踢踢球。 
-![](../images/weileizhe.jpeg)
+
+![](../../images/weileizhe.jpeg)
 
 
 

@@ -428,5 +428,7 @@ Chrome，Firefox，Opera和三星自带浏览器均已支持绝大多数API。�
 本文提到示例的完整代码可以在[Github](https://github.com/IncredibleWeb/pwa-tutorial)上找到，也可以前往[GitHub Page](https://incredibleweb.github.io/pwa-tutorial/)访问我们的应用。
 
 > 译者简介
+
 **丁全** 滴滴上海前端团队架构师，致力于React、Vue、PWA的研发与布道。
+
 ![](../../images/dingquan.jpeg)

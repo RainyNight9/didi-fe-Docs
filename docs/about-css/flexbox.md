@@ -55,5 +55,7 @@ display: flex | inline-flex; (适用于父类容器元素上)
 * 如果子容器的的flex-basis设置为auto(width也可以，不过flex-basis更符合语义)，那么计算剩余空间的时候将会根据子容器内容的多少来预留空间。
 
 > 作者简介
-![](../../images/qiaohongmin.jpeg)
+
 **谯洪敏** 滴滴上海前端团队负责人，前陆金所移动团队负责人，喜欢天文学和UFO研究，多次和UFO接触。
+
+![](../../images/qiaohongmin.jpeg)
