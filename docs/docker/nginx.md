@@ -314,9 +314,6 @@ $docker run -p 8093:80 --name mynginx  -v $PWD/conf/nginx.conf:/etc/nginx/nginx.
 
 
 -v$PWD/log:/opt/nginx/log：将主机中当前目录下的log挂载到容器的/opt/nginx/log，参考nginx.conf的log配置
-
-
-
 顺利的话，在浏览器中输入http://localhost:8093/ 应该能看到Hello docker nginx
 
 * * *
@@ -350,8 +347,6 @@ server {
 }
 
 ```
-
-
 
 注意这里宿主机一定要是IP，这样就成功把所有/api的请求代理到8080端口了！
 
@@ -390,7 +385,7 @@ server {
  |__\  |__\    |__\  |__\
 
  ```
- **马群晶**滴滴海浪前端团队（海浪FE）高级前端工程师，致力于Vue、活动自动化构建平台的研发与布道。
-![](../images/mqj.jpeg)
+ **马群晶**滴滴上海前端团队高级前端工程师，致力于Vue、活动自动化构建平台Matrix的研发与布道。
+![](../../images/maqunjin.jpeg)
 
 
