@@ -389,3 +389,8 @@ HTML5、Hybrid相关：
   [4]: ./images/5adb5d920001e8da10801225.png
   [5]: ./images/5adb5ddd0001c93610801163.png
   [6]: ./images/5adb5de90001b42d07340982.png
+
+
+> 作者简介
+![](../../images/qiaohongmin.jpeg)
+**谯洪敏** 滴滴上海前端团队负责人，前陆金所移动团队负责人，喜欢天文学和UFO研究，多次和UFO接触。
