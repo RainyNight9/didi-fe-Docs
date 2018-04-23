@@ -70,3 +70,8 @@ swagger是一个著名的API文档编辑工具，也可以充当mock工具的功
 
 以上是现有的一些MockServer的回顾，现有的MockServer并不能找到一个非常非常好用的，且同时满足以上特性的，
 接下来，笔者将会编写一个好用的MockServer，解决开发中经常遇到的一些痛点。
+
+
+> 作者简介
+![](../../images/zhouyong.jpeg)
+**周勇** 滴滴上海前端团队架构师，全栈工程师，Avatar Mock Server第一作者，酷爱前端技术的一切。
