@@ -41,6 +41,10 @@
 
 * [webpack 书籍](./docs/about-webpack/01_foreword.md)
 
+## 数据分析
+
+* [前端埋点那些事](./docs/about-data/tracking-data.md)
+
 
 ![DIDI FE logo](./images/logos/fe-mean1.jpeg)
 ![DIDI FE logo](./images/logos/fe-mean2.jpeg)

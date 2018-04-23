@@ -21,6 +21,11 @@ layout: default
 
 * [非常好用的nodejs日志库-winston](./docs/about-log/winston.md)
 
+## Docker
+
+* [mac下docker安装nginx并配置反向代理实现前后端分离](./docs/docker/nginx.md)
+
+
 ## 工程化
 
 * [手把手教你写创建React webapp项目的脚手架](./docs/about-project/generator-react-webapp-by-yoman.md)
@@ -41,6 +46,12 @@ layout: default
 ## webpack
 
 * [webpack 书籍](./docs/about-webpack/01_foreword.md)
+
+## 数据分析
+
+* [前端埋点那些事](./docs/about-data/tracking-data.md)
+
+
 
 ![DIDI FE logo](./images/logos/fe-mean1.jpeg)
 ![DIDI FE logo](./images/logos/fe-mean2.jpeg)
