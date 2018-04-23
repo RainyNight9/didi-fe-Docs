@@ -48,7 +48,6 @@ layout: default
 ![](./images/zhouhao.jpeg)
 ![](./images/zhouyong.jpeg)
 ![](./images/dingquan.jpeg)
-![](./images/changchaofan.jpeg)
 ![](./images/changchaofan.png)
 ![](./images/qiaohongmin.jpeg)
 

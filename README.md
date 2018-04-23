@@ -45,7 +45,7 @@
 ![](./images/zhouhao.jpeg)
 ![](./images/zhouyong.jpeg)
 ![](./images/dingquan.jpeg)
-![](./images/changchaofan.jpeg)
+![](./images/changchaofan.png)
 ![](./images/qiaohongmin.jpeg)
 
 ![DIDI FE logo](./images/logos/fe-mean1.jpeg)
