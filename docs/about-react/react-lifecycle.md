@@ -281,3 +281,7 @@ shouldComponentUpdate(nextProps, nextState){
 { 注: 关于[ES6](http://es6.ruanyifeng.com/) }
 { 注: 关于[react-router](https://github.com/rackt/react-router), [2.0版本](https://github.com/rackt/react-router/blob/master/upgrade-guides/v2.0.0.md) }
 
+
+> 作者简介
+**范可** 滴滴上海前端团队架构师，全栈工程师，微信专家，曾就职于SAP，LIMO创始人，关注于React、Vue、Mini Program等跨端技术的打通。
+![](../images/fanke.jpeg)

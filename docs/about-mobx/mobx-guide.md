@@ -126,3 +126,7 @@ React.render(<Timer />, document.body)
 - Mobx与React的结合可以说是天衣无缝，如何来优化React的组件渲染，可以参考[优化组件渲染](http://cn.mobx.js.org/best/react-performance.html)
 - 我们会遇到很多异步操作，比如请求数据，那对于编写异步的action，我们需要注意回调需要变成action，具体详见[异步action](http://cn.mobx.js.org/best/actions.html)
 - TodoList实例会帮助我们更好地理解Mobx-React，具体参考[Todolist-mobx-react](https://codepen.io/avioli/pen/JXRMxO?editors=0010)
+
+> 作者简介
+**周昊** 滴滴上海前端团队高级前端工程师，曰天，曾就职于SAP，深耕React、对mobx、redux等有深入的实践经验，王者荣耀王者段位。
+![](../images/zhouhao.jpeg)

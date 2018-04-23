@@ -198,3 +198,8 @@ React Fiber一个更新过程分为两个阶段：第一个阶段Reconciliation 
 - [React 16 error handler](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
 - [React 16 portals](https://reactjs.org/docs/portals.html)
 - [React Fiber是什么](https://zhuanlan.zhihu.com/p/26027085)
+
+
+> 作者简介
+**周昊** 滴滴上海前端团队高级前端工程师，曰天，曾就职于SAP，深耕React、对mobx、redux等有深入的实践经验，王者荣耀王者段位。
+![](../images/zhouhao.jpeg)

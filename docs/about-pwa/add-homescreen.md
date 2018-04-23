@@ -142,3 +142,8 @@ button.addEventListener('click', function (e) {
 最终具体效果图如下
 
 - ![desktop](images/desktop.png)  ![screen](images/screen.png)
+
+
+> 作者简介
+**黄扬** 滴滴上海前端团队高级前端工程师，人称黄老师，熟悉Webapp的开发与设计工作。
+![](../images/huangyang.jpeg)
