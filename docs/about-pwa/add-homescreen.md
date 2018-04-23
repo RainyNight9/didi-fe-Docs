@@ -5,7 +5,6 @@
 
 ### 创建manifest.json 文件
 
-
 以下为manifest.json 的配置如下：
 
 ```markdown
@@ -41,6 +40,7 @@
   ]
 }
 ```
+
 以下为配置属性简介：
 - short_name: 应用展示的名字（即添加到桌面的应用名字）
 - icons: 定义不同尺寸的应用图标的数组
@@ -61,7 +61,6 @@
 - lang: 语言
 - scope: 定义应用模式下的路径范围，超出范围会已浏览器方式显示
 
-
 ### 安装横幅触发条件
 拥有manifest文件，该文件具有：
 - 一个 short_name
@@ -79,18 +78,19 @@
 - 百度浏览器
 - 小米(亲测，可以)
 注意一点，虽然你点击了安装，也提示你安装成功，但是桌面上仍然看不到快捷方式，这个跟手机的系统权限有关，比如华为和小米，需要手动开启支持安装快捷方式的权限
+
 ![chrome-permission](images/chrome-permission.png)
+
 - 查看浏览器支持权限：https://lavas.baidu.com/ready/feature
+
 ### 如何调试
 工具：http-server，ngrok(自选)
 - 首先你需要一个server，让你的项目run起来
 - 因为Add to Homescreen 支持本地127的调试，所以http-server 足够了。
 - 不过当你用LightHouse 分析的时候，会发现提示显示你没有https 提供，暂时先不用管，当然如果你需要本地启动https 的服务，可以装一个ngrok
 
-用chrome 打开server 地址
-打开控制台， 点击Application 栏
-如红圈所标注。点击add to homescreen.即可触发安装横幅功能
-只要弹出如下的弹框，即可认为添加横幅成功
+用chrome打开server地址,打开控制台，点击Application栏，如红圈所标注。点击add to homescreen.即可触发安装横幅功能，只要弹出如下的弹框，即可认为添加横幅成功。
+
 ![homescreen](images/homescreen.png)
 
 ### 取消或延迟安装横幅的触发事件
@@ -143,9 +143,8 @@ button.addEventListener('click', function (e) {
 
 - ![desktop](images/desktop.png)  ![screen](images/screen.png)
 
-
 > 作者简介
 
-**黄扬** 滴滴上海前端团队高级前端工程师，人称黄老师，熟悉Webapp的开发与设计工作。
+**黄扬** 滴滴上海前端团队美女高级前端工程师，人称黄老师，熟悉Webapp的开发与设计工作。
 
 ![](../../images/huangyang.jpeg)
